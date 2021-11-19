@@ -1,4 +1,4 @@
-# JavaCompesation
+# JavaCompensation
 This repository is for the purpose of relearning java outside of school and cover content that I didn't understand during my years in varsity by solving problems using java,
 I will choose problems from books, institutions, friends and sometimes come with my own problem to solve.
 Some of the problems will be from the University of Cape Town, Computer Science department, for my solutions to these problems I don't give 
