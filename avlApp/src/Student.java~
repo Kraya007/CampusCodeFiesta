@@ -1,0 +1,39 @@
+
+/*
+ * artist Kevin Chiloane
+ * 22/04/2021
+ * class implements the Comperable interface to compare 
+ * person identity by dictionary order
+ */
+
+public class Student implements Comparable<Student>
+{
+	 String aName;
+	 String aId;
+	
+	public Student(String aId)
+	{
+		aId = aId;
+	}
+	
+	public Student(String aId, String aName)
+	{
+		aName =aName;
+		aId = aId;
+	}
+	
+	public String getaName() {
+		return aName;
+	}
+	
+	@Override
+	public int compareTo(Student o) {
+		// TODO Auto-generated method stub'
+		return aId.compareTo(o.aId);
+	}
+
+	@Override
+	public String toString() {
+		return aId+ " "+aName;
+	}
+}

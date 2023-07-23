@@ -1,0 +1,35 @@
+import os
+import random 
+
+file1 = open("data/oklist1.txt","r")
+file1 = file1.readlines()
+
+def runAVLApp(dataset):
+    with open("data\oklist.txt","r") as file:
+        for x in file:
+            aId = x.strip()
+            aId = aId.split(" ")[0]
+            aId = str(aId)
+            os.system("java -cp bin  AccessAVLApp "+aId) > results.txt
+            
+            with open("data/AccessAVLAppCount.txt","r") as countedFile:
+                opCount = countedFile.read()
+                dataset = str(dataset)
+                with open("data/AccessAVLApp"+ dataset + ".txt", "a") as counted:
+                    counted.write(aId+ " " + opCount+"\n")                   
+def ranSet(n):
+    aList = [x for x in  range(n-1, -1, -1)]
+    random.shuffle(aList)
+    return aList;
+            
+for n in range(0,9):
+    aFile = open("data\oklist.txt", "w")
+    dataset = n*500
+    aList1 = ranSet(dataset)
+    for x in range(dataset):
+        aFile.write(file1[aList1[x]])
+    aFile.close
+    runAVLApp(dataset)
+    
+                        
+                    
