@@ -1,0 +1,45 @@
+Kevin chiloane 
+CHLKEV001
+Assignment(That) group 64
+
+Question i
+(1) 
+	Which would you rather use if you are designing a system: TREND or English? Why?
+
+	-I prefer designing a system using TREND, as TREND stores data and it's state over
+	 time and in designing a system consistency in information is of importance and 
+	 TREND ensures consistency.
+(2)
+	To understand someone else’s data, which would you rather be given: TREND or English? Why?
+
+	-English is high level language and thus reading and understanding someone's data is very simple 
+	 and in this form data can be easily manipulated to any data model.
+
+(3)
+ 	How clear is the distinction between DEV and DEX?
+
+ 	 -OK but takes some time getting used to
+
+(4)
+	How clear would it be using TRAN(transform) instead of DEV, & ALSO instead of DEX?
+	
+	 -OK but takes some time getting used to
+
+(5)
+	Can you suggest better words to use instead of DEV and DEX? 
+	
+	 -DEX to continual entity
+	 -DEV to volatile entity
+
+
+(6)
+ 	How clear is the distinction between past (-) and future transitions? 
+	
+	 -fairly clear
+
+(7)
+	Which direction do you think DEV- (or DEX-) arrows should go
+	
+	 -as they are now
+
+	

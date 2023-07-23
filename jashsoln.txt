@@ -1,0 +1,155 @@
+HashTable.java
+
+class HashTable 
+{  
+   // hash table size
+   int hashTableSize = 37;   
+
+   // array to store items
+   String [] hashTableArray;
+   // for counting the number of additional comparisons due to collisions
+   int collisions;
+
+   int [] weights;
+   
+   // constructor
+   public HashTable (int [] weights) 
+   {
+      hashTableArray = new String [hashTableSize];
+      for ( int i=0; i<hashTableSize; i++ )
+         hashTableArray[i] = "";
+      collisions = 0;
+      this.weights = weights;
+   }
+   
+   // return number of additional collision comparisons
+   public int getCollisions ()
+   { return collisions; }
+   
+   // hash function based on external weights
+   public int hash ( String s )
+   {
+      HashTableFunctions htf = new HashTableFunctions (this.weights);
+      int val = 0;
+      for ( int i=0; i<9; i++ )
+         val += htf.weights[i] * s.charAt (i);
+      return val % hashTableSize;   
+   }   
+   
+   // inserts string s into the hash table
+   public void insert ( String s )
+   {
+      int h = hash (s);
+      while (! hashTableArray[h].equals (""))
+      {
+         h = (h+1) % hashTableSize;
+         collisions++;
+      }
+      hashTableArray[h] = s;
+   }
+   
+   // stub to point to external function
+   boolean find ( String s )
+   {
+      HashTableFunctions htf = new HashTableFunctions (this.weights);
+      return htf.find (s, hash (s), hashTableSize, hashTableArray);
+   }
+}
+HashTableFunctions.java
+
+class HashTableFunctions
+{
+         
+   //hash function weights
+   // 9 integers, each in the range 0-5 to act as weights for the characters in the keys
+   int [] weights = {4, 2, 0, 4, 2, 0, 2, 2, 4};
+
+   public HashTableFunctions(int [] weights){
+      this.weights = weights;
+   }
+   // int [] weights = {4, 2, 0, 4, 2, 0, 2, 2, 4};
+   
+   // ADD YOUR WEIGHTS INSTEAD OF 1s
+
+   // returns True if the hash table contains string s
+   // return False if the hash table does not contain string s
+   boolean find ( String s, int h, int hashTableSize, String [] hashTableArray )
+   {
+      while(hashTableArray[h] != ""){
+         if(hashTableArray[h]==s){
+            return true;
+         }
+         else{
+            h++;
+            h = h%hashTableSize;
+         }
+         
+      }
+      return false;
+   }
+}
+TestHashTable.java
+
+import java.util.*;
+import java.nio.file.*;
+
+class TestHashTable
+{
+   public TestHashTable ()
+   {
+   }
+   
+   void run ( int threshold , int [] weights)
+   {
+      HashTable h = new HashTable (weights);
+      
+      int hit1=0, miss1=0, hit2=0, miss2=0;
+      List<String> lines = null;
+      List<String> linesmiss = null;
+   
+      try {
+         lines = Files.readAllLines (Paths.get ("names36.txt"));
+         linesmiss = Files.readAllLines (Paths.get ("namesmiss.txt"));
+      } catch (Exception e) {
+         System.out.println (e.toString ());
+      }   
+      
+      for ( int i=0; i<lines.size (); i++ )
+      {
+         h.insert (lines.get (i));
+      }
+      
+      for ( int i=0; i<lines.size (); i++ )
+      {
+         if (h.find (lines.get(i)))
+            hit1++;
+         else
+            miss1++;
+      }
+
+      for ( int i=0; i<linesmiss.size (); i++ )
+      {
+         if (h.find (linesmiss.get(i)))
+            hit2++;
+         else
+            miss2++;
+      }
+      
+      System.out.println ("Collision Threshold: " + threshold);
+      if (h.getCollisions () <= threshold)
+         System.out.println ("Collisions Threshold Met!");
+      else   
+         System.out.println ("Collisions Threshold Not Met! Collisions = " + h.getCollisions ());
+      System.out.println ("Seen data [Hit:Miss]: " + hit1 + ":" + miss1);
+      System.out.println ("Unseen data [Hit:Miss]: " + hit2 + ":" + miss2);
+   }
+
+   public static void main ( String [] args )
+   {    
+      int [] weights = new int[9];
+      for (int i = 1; i < 10; ++i){
+         weights[i-1] = Integer.valueOf(args[i]);
+      }
+      (new TestHashTable ()).run(Integer.valueOf (args[0]), weights);
+   }
+}
