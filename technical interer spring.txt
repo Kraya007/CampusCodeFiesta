@@ -1,0 +1,9 @@
+java ee, java spring framework and java spring boot
+
+java ee is a platform with already built in tool that extends the capabilities java programming language  and help build powerful applications 
+one is example of its libralies is the servelet which acts to accept request from user in a WEB BASED PLATFORM ACTING A waite. i'm not practically experinced in it as it resource demanding and slow and i
+haven't been in a situation i felt the need to implement it
+
+Java spring framework follows the definition of java ee but it a succesor of java ee to implement java appliaction  by a faster rate and also being versatile by accomodating smaller applications
+some key functionality of it will be the DI(dependecy injection) allows develop to maintain dependecies in object rather that manual crerating objects and managing their dependecies mvc separates
+fifferent type of appication model (data) view(interfave) and controoller(handing request) provides abstraction in handing https requests  making it easier to build applications

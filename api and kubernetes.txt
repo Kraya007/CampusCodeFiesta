@@ -1,0 +1,7 @@
+rest api's are set of rules or insturction that computer programs use to comminate with each other, computer can use rest api to send or ask for datat from another in java they can build using
+boot
+
+
+kubernetes k8s are partially like docker containers they orhestratte the depolyment and automation, scaling  and management of contanerized applications, kubernets contains a collection of nodes 
+that act like parking spot for computers these nodes are called servesm, kubernetes allocates these nodes efficiently ensuring each computer program has has necessary resources to run, say a game of fortnite
+is being populated by gamers kubernes can manage the game as to provide more resources and dervers to accomodate the demand and it case of a crash kubernes can restart a computer program
